@@ -108,3 +108,13 @@ class Wallet:
 		self._validate_wallet_action(wallet_action)
 		self._validate_currency(currency)
 		self._validate_amount(amount)
+
+	@property
+	def balance(self) -> dict[CurrencyEnum, float]:
+		"""
+		Returns the current balance of the wallet.
+
+		Returns:
+			dict[CurrencyEnum, float]: A dictionary with the balance of each currency.
+		"""
+		return dict(self.state)
