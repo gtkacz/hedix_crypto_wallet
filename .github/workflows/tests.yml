@@ -14,7 +14,6 @@ jobs:
       fail-fast: true
       matrix:
         os-version:
-          - {python: "3.9", os: "ubuntu-22.04"}
           - {python: "3.10", os: "ubuntu-latest"}
           - {python: "3.11", os: "ubuntu-latest"}
           - {python: "3.12", os: "ubuntu-latest"}
