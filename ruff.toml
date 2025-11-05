@@ -1,0 +1,72 @@
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "__*.py",
+    "**/migrations/**.py",
+    "apps.py",
+]
+
+line-length = 150
+indent-width = 4
+
+target-version = "py313"
+
+[lint]
+preview = true
+
+select = ["ALL"]
+ignore = ["ASYNC240","BLE001","C417","CPY001","D100","D105","D200","D203","D205","D206","D211","D212","D404","DTZ005","E721","E741","EM101","EM102","FA100","FURB113","G004","PLR0904","PLR2004","PTH207","RUF029","S404","S602","S603","TID252","TRY003","TRY301","UP007","UP045","W191"]
+extend-select = ["DOC"]
+
+fixable = ["ALL"]
+unfixable = []
+
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[format]
+preview = true
+
+quote-style = "double"
+docstring-code-format = true
+
+indent-style = "tab"
+
+skip-magic-trailing-comma = false
+
+line-ending = "auto"
+
+[lint.per-file-ignores]
+"**/__init__.py" = ["F401"]
+
+[lint.flake8-quotes]
+inline-quotes = "double"
+
+[lint.pydocstyle]
+convention = "google"
+
+[lint.pycodestyle]
+max-doc-length = 320
