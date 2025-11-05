@@ -27,27 +27,54 @@ class Wallet:
 		"""
 		Initializes the wallet by processing the transaction list.
 		"""
-		transaction_queue: SimpleQueue[Transaction] = SimpleQueue()
+		self.transaction_queue: SimpleQueue[Transaction] = SimpleQueue()
 
 		for transaction in self.transaction_list:
-			transaction_queue.put(transaction)
+			self.transaction_queue.put(transaction)
 
-		while not transaction_queue.empty():
-			wallet_action, currency, amount = transaction_queue.get()
+		while not self.transaction_queue.empty():
+			wallet_action, currency, amount = self.transaction_queue.get()
 			self._validate_transaction(wallet_action, currency, amount)
+			self.process_transaction(wallet_action, currency, amount)
 
-			if wallet_action == WalletActionEnum.DEPOSIT:
-				self.state[currency] += amount
+	def process_transaction(
+		self,
+		wallet_action: WalletActionEnum,
+		currency: CurrencyEnum,
+		amount: float,
+		*,
+		verbose: bool = True,
+	) -> bool:
+		"""
+		Processes a transaction on the wallet.
 
-			elif wallet_action == WalletActionEnum.WITHDRAW:
-				if self.state[currency] < amount:
+		Args:
+			wallet_action (WalletActionEnum): The action to perform.
+			currency (CurrencyEnum): The currency to transact.
+			amount (float): The amount to transact.
+			verbose (bool, optional): Whether to print warnings. Defaults to True.
+
+		Returns:
+			bool: Whether the transaction was successful.
+		"""
+		if wallet_action == WalletActionEnum.DEPOSIT:
+			self.state[currency] += amount
+			return True
+
+		if wallet_action == WalletActionEnum.WITHDRAW:
+			if self.state[currency] < amount:
+				if verbose:
 					warn(
 						f"Insufficient funds for withdrawal: {amount} {currency}, transaction skipped.",
 						stacklevel=1,
 					)
-					continue
 
-				self.state[currency] -= amount
+				return False
+
+			self.state[currency] -= amount
+			return True
+
+		return False
 
 	@staticmethod
 	def _validate_currency(currency: CurrencyEnum) -> None:
