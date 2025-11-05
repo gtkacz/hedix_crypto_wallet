@@ -17,7 +17,7 @@ class Wallet:
 		transaction_list (list[tuple[WalletActionEnum, CurrencyEnum, float]]): A list of transactions performed on the wallet.
 
 	Raises:
-		ValueError: If any transaction is invalid.
+		ValueError: If any transaction is not supported.
 	"""
 
 	transaction_list: Sequence[Transaction]
@@ -34,7 +34,6 @@ class Wallet:
 
 		while not self.transaction_queue.empty():
 			wallet_action, currency, amount = self.transaction_queue.get()
-			self._validate_transaction(wallet_action, currency, amount)
 			self.process_transaction(wallet_action, currency, amount)
 
 	def process_transaction(
@@ -57,6 +56,8 @@ class Wallet:
 		Returns:
 			bool: Whether the transaction was successful.
 		"""
+		self._validate_transaction(wallet_action, currency, amount)
+
 		if wallet_action == WalletActionEnum.DEPOSIT:
 			self.state[currency] += amount
 			return True
