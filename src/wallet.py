@@ -11,7 +11,7 @@ from src.common.types import Transaction
 @dataclass
 class Wallet:
 	"""
-	Represents a cryptocurrency wallet.
+	A cryptocurrency wallet.
 
 	Attributes:
 		transaction_list (list[tuple[WalletActionEnum, CurrencyEnum, float]]): A list of transactions performed on the wallet.
@@ -19,6 +19,7 @@ class Wallet:
 	Raises:
 		ValueError: If any transaction is invalid.
 	"""
+
 	transaction_list: Sequence[Transaction]
 	state: dict[CurrencyEnum, float] = field(default_factory=lambda: defaultdict(float))
 
@@ -32,7 +33,7 @@ class Wallet:
 			transaction_queue.put(transaction)
 
 		while not transaction_queue.empty():
-			wallet_action, currency, amount = transaction_queue.get().values()
+			wallet_action, currency, amount = transaction_queue.get()
 			self._validate_transaction(wallet_action, currency, amount)
 
 			if wallet_action == WalletActionEnum.DEPOSIT:
