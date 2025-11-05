@@ -61,7 +61,7 @@ line-ending = "auto"
 
 [lint.per-file-ignores]
 "**/__init__.py" = ["F401"]
-"tests/*" = ["ANN201", "D101", "D102"]
+"tests/*" = ["ANN201", "D101", "D102", "PT027"]
 
 [lint.flake8-quotes]
 inline-quotes = "double"

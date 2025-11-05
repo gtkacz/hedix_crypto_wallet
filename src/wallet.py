@@ -14,7 +14,7 @@ class Wallet:
 	A cryptocurrency wallet.
 
 	Attributes:
-		transaction_list (list[tuple[WalletActionEnum, CurrencyEnum, float]]): A list of transactions performed on the wallet.
+		transaction_list (Sequence[tuple[WalletActionEnum, CurrencyEnum, float]]): A list of transactions performed on the wallet.
 
 	Raises:
 		ValueError: If any transaction is not supported.
