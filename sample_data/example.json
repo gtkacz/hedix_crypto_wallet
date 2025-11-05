@@ -1,0 +1,5 @@
+[
+  {"action": "DEPOSIT", "currency": "BTC", "amount": 0.25},
+  {"action": "DEPOSIT", "currency": "ETH", "amount": 1.0},
+  {"action": "WITHDRAW", "currency": "USD", "amount": 100}
+]

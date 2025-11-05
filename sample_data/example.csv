@@ -1,0 +1,4 @@
+action,currency,amount
+DEPOSIT,BTC,0.25
+DEPOSIT,ETH,1.0
+WITHDRAW,USD,100
