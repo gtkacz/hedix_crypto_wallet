@@ -1,8 +1,11 @@
+from typing import TYPE_CHECKING
 from unittest import TestCase
 
 from src.common.enums import CurrencyEnum, WalletActionEnum
-from src.common.types import Transaction
 from src.wallet import Wallet
+
+if TYPE_CHECKING:
+	from src.common.types import Transaction
 
 
 class TestWallet(TestCase):
