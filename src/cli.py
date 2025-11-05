@@ -13,9 +13,9 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 
-from common.enums import CurrencyEnum, WalletActionEnum
-from common.types import Transaction
-from wallet import Wallet
+from src.common.enums import CurrencyEnum, WalletActionEnum
+from src.common.types import Transaction
+from src.wallet import Wallet
 
 console = Console()
 

@@ -1,6 +1,6 @@
 from typing import NamedTuple
 
-from ..enums import CurrencyEnum, WalletActionEnum
+from src.common.enums import CurrencyEnum, WalletActionEnum
 
 
 class Transaction(NamedTuple):

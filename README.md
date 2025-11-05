@@ -1,10 +1,15 @@
 # 🚀 Coding Exercise: The Simple Crypto Wallet
 
+# To run:
+
+1. Install the requirements on `requirements.txt` with whichever package manager you use.
+2. Try `python src/cli.py`. If this throws import errors, try installing the `ipython` package and run `ipython src/main.py` instead.
+
 Thank you for your interest in joining our team. We've designed a small coding exercise that
 helps us understand how you approach problems, design software, and write code. This isn't a
 pass/fail test but rather a starting point for our next conversation.
 
-# 1. Problem Statement
+## 1. Problem Statement
 
 You are tasked with building a simple **crypto wallet** that tracks the balance of various assets.
 The wallet starts with no assets and processes a list of transactions to determine its final state.
@@ -70,7 +75,7 @@ asset.
 
 **Expected Output:** BTC: 1.0, ETH: 5.0, USD: 700.
 
-# 2. Instructions & Evaluation
+## 2. Instructions & Evaluation
 
 - **Language:** You can solve this problem in any programming language you are comfortable with.
 - **Scope:** The solution should be a simple **console/terminal application**. You don't need to build a web API, a user interface, or a database. How you handle the input (e.g., hard-coded in your main function, read from a file) is up to you. A couple of hours should be more than enough to complete the core problem.

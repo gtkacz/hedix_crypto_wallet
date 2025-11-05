@@ -4,8 +4,8 @@ from dataclasses import dataclass, field
 from queue import SimpleQueue
 from warnings import warn
 
-from common.enums import CurrencyEnum, WalletActionEnum
-from common.types import Transaction
+from src.common.enums import CurrencyEnum, WalletActionEnum
+from src.common.types import Transaction
 
 
 @dataclass
